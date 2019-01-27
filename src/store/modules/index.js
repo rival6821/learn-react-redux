@@ -1,8 +1,8 @@
  import { combineReducers } from 'redux';
  import counter from './counter';
- import wating from './wating';
+ import waiting from './waiting';
 
  export default combineReducers({
      counter,
-     wating,
+     waiting,
  })

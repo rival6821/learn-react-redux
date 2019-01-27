@@ -1,29 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as watingActions from '../store/modules/wating';
+import * as waitingActions from '../store/modules/waiting';
 import WaitingList from '../components/WaitingList';
 
 
 class WaitingListContainer extends Component {
     //인풋 변경
     handleChange = e => {
-        const { WatingActions } = this.props;
-        WatingActions.changeInput(e.target.value);
+        const { WaitingActions } = this.props;
+        WaitingActions.changeInput(e.target.value);
     };
     handleSubmit = e =>{
         e.preventDefault();
-        const {WatingActions,input} = this.props;
-        WatingActions.create(input);
-        WatingActions.changeInput('');
+        const {WaitingActions,input} = this.props;
+        WaitingActions.create(input);
+        WaitingActions.changeInput('');
     }
     handleEnter = id => {
-        const { WatingActions } = this.props;
-        WatingActions.enter(id);
+        const { WaitingActions } = this.props;
+        WaitingActions.enter(id);
     }
     handleLeave = id => {
-        const { WatingActions } = this.props;
-        WatingActions.leave(id);
+        const { WaitingActions } = this.props;
+        WaitingActions.leave(id);
     }
 
     render() {
@@ -47,10 +47,10 @@ const mapStateToProps = ({ waiting }) => ({
 
 //위에서쓸 액션 함수를 만들어줌
 const mapDispatchToProps = dispatch => ({
-    WatingActions : bindActionCreators(watingActions, dispatch)
+    WaitingActions : bindActionCreators(waitingActions, dispatch)
 });
 
-export default connect({
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-})(WaitingListContainer);
+)(WaitingListContainer);
